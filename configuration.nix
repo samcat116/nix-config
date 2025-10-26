@@ -41,6 +41,8 @@
   users.mutableUsers = false;
 
   time.timeZone = "America/New_York";
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 
   programs.git.config = {
     userName = "Sam Schmitt";
