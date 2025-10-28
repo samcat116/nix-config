@@ -8,9 +8,10 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = { self, nixpkgs, home-manager,... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nvf,... }@inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
     system = "aarch64-linux";
       modules = [
@@ -20,10 +21,10 @@
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+          home-manager.useUserPackages = true;
+	  home-manager.sharedModules = [ nvf.homeManagerModules.default ];
+          home-manager.users.sam = import ./home.nix;
 
-            # TODO replace ryan with your own username
-            home-manager.users.sam = import ./home.nix;
         }
       ];
     };

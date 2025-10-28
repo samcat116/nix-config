@@ -16,10 +16,7 @@
     ];
   nix.settings.experimental-features = ["nix-command" "flakes"];
   environment.systemPackages = with pkgs; [
-    # Flakes clones its dependencies through the git command,
-    # so git must be installed first
     git
-    vim
     wget
   ];
   users.users.sam = {
