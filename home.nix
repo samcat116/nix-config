@@ -12,8 +12,13 @@
     eza
     jq
     fzf
+    fd
+    bat
   ];
-  
+
+  programs.claude-code.enable = true;
+  programs.codex.enable = true;
+
   programs.git = {
     enable = true;
     userName = "Sam Schmitt";
@@ -35,6 +40,8 @@
     settings = {
       aws.disabled = true;
       gcloud.disabled = true;
+      container.disabled = true;
+      hostname.disabled = true;
     };
   };
   programs.nvf = {

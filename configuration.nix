@@ -14,10 +14,12 @@
       # Include the OrbStack-specific configuration.
       ./orbstack.nix
     ];
+  nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
   environment.systemPackages = with pkgs; [
     git
     wget
+    pkgs.ripgrep
   ];
   users.users.sam = {
     uid = 501;
@@ -44,6 +46,12 @@
   programs.git.config = {
     userName = "Sam Schmitt";
     userEmail = "sam@samschmitt.com";
+  };
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/etc/nixos/"; # sets NH_OS_FLAKE variable for you
   };
 
   networking = {
