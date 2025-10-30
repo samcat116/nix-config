@@ -47,11 +47,7 @@
     };
   };
 
-  # # Neovim via nvf
-  # programs.nvf = {
-  #   enable = true;
-  #   };
-  # };
-
+  # Neovim via nvf
+  programs.nvf.enable = true;
   home.stateVersion = "25.05";
 }
