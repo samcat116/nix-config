@@ -46,10 +46,6 @@
   };
   programs.nvf = {
      enable = true;
-     settings = {
-      vim.viAlias = true;
-      vim.vimAlias = true;
-    };
   };
 
   home.stateVersion = "25.05";
