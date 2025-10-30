@@ -1,32 +1,27 @@
 {
-  description = "A simple NixOS flake";
+  description = "Modular NixOS & Darwin configuration using blueprint";
 
   inputs = {
-    # NixOS official package source, using the nixos-25.05 branch here
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    blueprint = {
+      url = "github:numtide/blueprint";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = { self, nixpkgs, home-manager, nvf,... }@inputs: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-    system = "aarch64-linux";
-      modules = [
-        # Import the previous configuration.nix we used,
-        # so the old configuration file still takes effect
-        ./configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-	  home-manager.sharedModules = [ nvf.homeManagerModules.default ];
-          home-manager.users.sam = import ./home.nix;
-
-        }
-      ];
-    };
-  };
+  # Load the blueprint
+  outputs = inputs: inputs.blueprint { inherit inputs; };
 }

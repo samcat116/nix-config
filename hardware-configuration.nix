@@ -10,17 +10,9 @@
 
   # Root filesystem
   fileSystems."/" = {
-    device = 
-             
-             
-             ;
-    
-    
-    
+    device = "/dev/vda";
     fsType = "btrfs";
   };
-
-  ;}
 
   swapDevices = [ ];
 }
