@@ -19,11 +19,14 @@
   programs.claude-code.enable = true;
   programs.codex.enable = true;
 
-  # Git configuration
   programs.git = {
     enable = true;
-    userName = "Sam Schmitt";
-    userEmail = "sam@samschmitt.com";
+    settings = {
+      user = {
+        name = "Sam Schmitt";
+        email = "sam@samschmitt.com";
+      };
+    };
   };
 
   # Zsh configuration
