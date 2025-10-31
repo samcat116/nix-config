@@ -49,13 +49,7 @@
   users.defaultUserShell = pkgs.zsh;
 
   # Git configuration (system-wide)
-  programs.git = {
-    enable = true;
-    settings = {
-      user = "Sam Schmitt";
-      email = "sam@samschmitt.com";
-    };
-  };
+  programs.git.enable = true;
 
 
   # NixOS Helper (nh)
