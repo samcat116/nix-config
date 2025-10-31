@@ -5,10 +5,10 @@
     # Include the default lxd configuration
     "${modulesPath}/virtualisation/lxc-container.nix"
     # Hardware configuration
-    ../../hardware-configuration.nix
+    ./hardware-configuration.nix
     # OrbStack and Incus specific configs
-    ../../incus.nix
-    ../../orbstack.nix
+    ./incus.nix
+    ./orbstack.nix
   ];
 
   # Basic system configuration
