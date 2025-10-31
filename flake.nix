@@ -1,5 +1,5 @@
 {
-  description = "Modular NixOS & Darwin configuration using blueprint";
+  description = "Modular NixOS, macOS, and Home-Manager configuration using blueprint";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

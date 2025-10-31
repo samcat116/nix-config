@@ -18,7 +18,6 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    git
     wget
     ripgrep
   ];
@@ -50,10 +49,14 @@
   users.defaultUserShell = pkgs.zsh;
 
   # Git configuration (system-wide)
-  programs.git.config = {
-    userName = "Sam Schmitt";
-    userEmail = "sam@samschmitt.com";
+  programs.git = {
+    enable = true;
+    settings = {
+      user = "Sam Schmitt";
+      email = "sam@samschmitt.com";
+    };
   };
+
 
   # NixOS Helper (nh)
   programs.nh = {
