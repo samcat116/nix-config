@@ -24,9 +24,6 @@
   # Shell configuration
   programs.zsh.enable = true;
 
-  # Git configuration (system-wide)
-  programs.git.enable = true;
-
   # Home-manager configuration (nvf integration)
   home-manager.sharedModules = [ inputs.nvf.homeManagerModules.default ];
 
